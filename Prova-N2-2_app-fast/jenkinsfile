@@ -16,7 +16,7 @@ pipeline{
             steps {
                 echo 'testes de unidade'
                 dir("$diretorio") {
-                    sh './WORKSPACE/gradlew test'
+                    sh './WORKSPACE/Prova-N2-2_app-fast/gradlew test'
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline{
             steps {
                 echo 'build do apk'
                 dir("$diretorio") {
-                    sh './WORKSPACE/gradlew assembleRelease'
+                    sh './WORKSPACE/Prova-N2-2_app-fast/gradlew assembleRelease'
                 }
             }
         }
