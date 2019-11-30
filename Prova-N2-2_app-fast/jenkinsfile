@@ -34,7 +34,7 @@ pipeline{
             steps {
                 echo 'arquivar apk'
                 archiveArtifacts artifacts: '**/app-release-unsigned.apk', fingerprint:true , allowEmptyArchive:false
-                cho 'apk arquivado'
+                echo 'apk arquivado'
             }
         }
 
