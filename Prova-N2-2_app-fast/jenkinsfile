@@ -25,7 +25,7 @@ pipeline{
             steps {
                 echo 'build do apk'
                 dir("$diretorio") {
-
+                    sh 'cd $WORKSPACE/Prova-N2-2_app-fast/'
                     sh './gradlew assembleRelease'
                 }
             }
