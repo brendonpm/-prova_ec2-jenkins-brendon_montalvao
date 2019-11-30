@@ -1,0 +1,55 @@
+pipeline{
+    agent any
+    environment {
+        diretorio = "$WORKSPACE/Prova-N2-2_app-fast"
+    }
+    stages {
+        stage('Preparando workpace') {
+            steps {
+                echo 'Preparando workpace'
+                dir("$diretorio") {
+                    sh 'gradle  wrapper test'
+                }
+            }
+        }
+        stage('testes de unidade') {
+            steps {
+                echo 'testes de unidade'
+                dir("$diretorio") {
+                    sh '$WORKSPACE/gradle'
+                }
+            }
+        }
+        stage('build do apk') {
+            steps {
+                echo 'build do apk'
+                dir("$diretorio") {
+                    sh '$WORKSPACE/gradle build'
+                }
+            }
+        }
+        stage('arquivar apk') {
+            steps {
+                echo 'arquivar apk'
+                archiveArtifacts artifacts: '**/app-release-unsigned.apk', fingerprint:true , allowEmptyArchive:false
+                cho 'apk arquivado'
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
