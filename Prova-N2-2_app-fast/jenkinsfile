@@ -16,7 +16,7 @@ pipeline{
             steps {
                 echo 'testes de unidade'
                 dir("$diretorio") {
-                    sh '$WORKSPACE/gradlew test'
+                    sh '$WORKSPACE/gradle test'
                 }
             }
         }
