@@ -8,7 +8,7 @@ pipeline{
             steps {
                 echo 'Preparando workpace'
                 dir("$diretorio") {
-                    sh 'gradle  wrapper test'
+                    sh './gradle  wrapper'
                 }
             }
         }
@@ -16,7 +16,7 @@ pipeline{
             steps {
                 echo 'testes de unidade'
                 dir("$diretorio") {
-                    sh '$WORKSPACE/gradle'
+                    sh './WORKSPACE/gradle test'
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline{
             steps {
                 echo 'build do apk'
                 dir("$diretorio") {
-                    sh '$WORKSPACE/gradle build'
+                    sh './WORKSPACE/gradle assembleRelease'
                 }
             }
         }
